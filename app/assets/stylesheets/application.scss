@@ -16,3 +16,13 @@
  // ブートストラップを読み込む記述
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+body {
+  padding: 70px;
+}
+header {
+  padding: 0 70px;
+}
+footer {
+  text-align: right;
+}
