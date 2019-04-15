@@ -40,7 +40,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       # t.datetime :locked_at
 
       # 新規登録画面に名前を追加するためのカラム
-      t.string :name null: false
+      t.string :name, null: false, default: ""
       t.timestamps null: false
     end
 
