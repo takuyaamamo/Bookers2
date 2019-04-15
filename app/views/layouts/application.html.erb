@@ -10,7 +10,20 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
-    <header>
+    <header class="container">
+      <div class="row">
+        <div class="col-xl-4">
+          Bookers2
+        </div>
+        <nav class="col-xl-8">
+          <ul>
+            <li>Home</li>
+            <li>About</li>
+            <li>sign up</li>
+            <li>login</li>
+          </ul>
+        </nav>
+      </div>
     </header>
     <%= yield %>
   </body>
