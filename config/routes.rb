@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'users/show'
   # トップページをルートにするroot to: 'コントローラ#アクション'
   root to: 'toppage#top'
 
