@@ -2,6 +2,11 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-8 col-md-offset-2">
+        <% if flash[:notice] %>
+          <div class="flash">
+            <%= flash[:notice] %>
+          </div>
+        <% end %>
         <h1>
           <strong>welcome to </strong><span class="glyphicon glyphicon-book" aria-hidden="true"><strong>Bookers</strong> !!
           </h1>

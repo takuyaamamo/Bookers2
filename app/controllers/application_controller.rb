@@ -14,14 +14,18 @@ class ApplicationController < ActionController::Base
 
 # deviseはデフォルト設定でログイン後トップページに飛んでしまう。トップページを設定している場合変更は出来ない。よって以下の設定を行う
   def after_sign_in_path_for(resource)
+    # ここに何か記入すれば出るかも
+    flash[:notice] = 'ログイン成功！！'
     user_path(current_user.id)
   end
 
   def after_sign_up_path_for(resource)
+    flash[:notice] = 'ログイン成功！！'
     user_path(current_user.id)
   end
 
   def after_sign_out_path_for(resource)
+    flash[:notice] = 'ログアウト成功！！'
     root_path
   end
 end
