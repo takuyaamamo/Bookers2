@@ -5,6 +5,8 @@ class CreateUserImages < ActiveRecord::Migration[5.2]
       t.text :image_id
       # hasmany,belongs_toでUserモデルとuser_idがつながっている
       t.integer :user_id
+      
+      t.text :caption
 
       t.timestamps
     end
