@@ -38,7 +38,8 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       # t.integer  :failed_attempts, default: 0, null: false # Only if lock strategy is :failed_attempts
       # t.string   :unlock_token # Only if unlock strategy is :email or :both
       # t.datetime :locked_at
-
+      t.string :introduction
+      t.string :image_id
       # 新規登録画面に名前を追加するためのカラム
       t.string :name, null: false, default: ""
       t.timestamps null: false
