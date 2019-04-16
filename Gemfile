@@ -67,3 +67,6 @@ gem 'devise'
 # CSSを簡単に整えられるgem
 gem 'bootstrap-sass','~> 3.3.6'
 gem 'jquery-rails'
+# 画像投稿のためのgem,fileアップロード用refile、リサイズを簡単にできるrefile-mini-magic
+gem "refile", require: "refile/rails", github: 'manfe/refile'
+gem "refile-mini_magick"

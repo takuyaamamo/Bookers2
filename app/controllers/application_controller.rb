@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_permitted_parameters
-    # deviseでストロングパラメータを追加する追加しないとPOSTに反映されない？
+    # 新規登録時とログイン時にdeviseでストロングパラメータを追加する.追加しないとPOSTに反映されない
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
     devise_parameter_sanitizer.permit(:sign_in, keys: [:name])
   end
