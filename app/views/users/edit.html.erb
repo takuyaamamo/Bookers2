@@ -1,0 +1,36 @@
+<div class='body'>
+  <div class='container'>
+
+
+    <p id="notice"></p>
+
+    <h2>User info</h2>
+
+    <form class="edit_user" id="edit_user_3337" enctype="multipart/form-data" action="/users/3337" accept-charset="UTF-8" method="post">
+      <input name="utf8" type="hidden" value="&#x2713;" />
+      <input type="hidden" name="_method" value="patch" />
+      <input type="hidden" name="authenticity_token" value="+IGWxMIxSCk10/5jwOrjZ34wqnyNNS9pQ1ipaaF3ySNVGT6sHQuKmYTgEdrlIx7nrbdnWGQdeuAAtPMoPqQvpw==" />
+
+
+      <div class="field">
+        <label for="user_name">Name</label>
+        <input class="name" type="text" value="ama" name="user[name]" id="user_name" />
+      </div>
+
+      <div class="field">
+        <label for="user_image">Image</label>
+        <input value="{}" data-reference="d53e944f1762c0948b31a0dc77597d32" type="hidden" name="user[profile_image]" /><input class="user_image" data-reference="d53e944f1762c0948b31a0dc77597d32" include_hidden="false" type="file" name="user[profile_image]" id="user_profile_image" />
+      </div>
+
+      <div class="field">
+        <label for="user_introduction">Introduction</label>
+        <textarea class="introduction" name="user[introduction]" id="user_introduction">
+          こんにちは</textarea>
+        </div>
+
+        <div class="actions">
+          <input type="submit" name="commit" value="Update User" data-disable-with="Update User" />
+        </div>
+      </form>
+    </div>
+  </div>
