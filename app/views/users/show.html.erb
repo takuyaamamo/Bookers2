@@ -13,11 +13,13 @@
           <tr><img class="attachment user profile_image" src="/attachments/fef8a78e33cc23428799070a1e90807ca836d6d5/store/fill/100/100/6c4a9b64ced7b7311302ec2d0431c9e50b15f01e9412d435e439b3f05f0b/profile_image" alt="Profile image" /></tr>
           <tr>
             <th>name</th>
-            <th>ama</th>
+            <th>
+              <%= @user.name %>
+            </th>
           </tr>
           <tr>
             <th>introduction</th>
-            <th>こんにちは</th>
+            <th><%=  %>こんにちは</th>
           </tr>
         </table>
 
@@ -60,11 +62,20 @@
 
           <tbody>
             <tr>
-              <td><a href="/users/3337">
+              <td>
+                <a href="/users/3337">
+                <%=  %>
                 <img class="attachment user profile_image" src="/attachments/3972390d616ac62a7fd09edfbba758247e7c6205/store/fill/50/50/6c4a9b64ced7b7311302ec2d0431c9e50b15f01e9412d435e439b3f05f0b/profile_image" alt="Profile image" />
-              </a>        </td>
-              <td><a class="book_5914" href="/books/5914">名前付きルート</a></td>
-              <td>このｎ</td>
+                </a>
+              </td>
+              <td>
+                <a class="book_5914" href="/books/5914">
+                <%=  %>名前付きルート
+                </a>
+              </td>
+              <td>
+                <%=  %>このｎ
+              </td>
             </tr>
           </tbody>
         </table>
