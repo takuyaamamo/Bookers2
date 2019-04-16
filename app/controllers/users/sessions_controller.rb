@@ -7,20 +7,10 @@ class Users::SessionsController < Devise::SessionsController
   # def new
   #   super
   # end
-  GET /resource/sign_in
-  def new
-    super
-    flash[:notice] = "ログイン成功!"
-  end
 
   # POST /resource/sign_in
   # def create
   #   super
-  # end
-  # POST /resource/sign_in
-  # def create
-  #   super
-  #   flash[:notice] = "ログイン成功!"
   # end
 
   # DELETE /resource/sign_out
