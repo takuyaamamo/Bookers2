@@ -4,11 +4,11 @@
   <input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="CovBRAE+UkDAUnrf6xsR0Q9HK1Gfcj5ks4HxAAI3PAGuiii2msGky7MYXJD6S12n92K2ggDSVcx6ILzEahGYhA==" />
   <div class="field row">
     <label for="book_title">Title</label>
-    <%= f.text_field :title, html: {class: "col-xs-12 book_title", id: "book_title"} %>
+    <%= f.text_field :book_title, html: {class: "col-xs-12 book_title", id: "book_title"} %>
   </div>
   <div class="field row">
     <label for="book_opinion">Opinion</label>
-    <%= f.text_area :body, html: {class: "col-xs-12 book_body", id: "book_body"} %>
+    <%= f.text_area :book_body, html: {class: "col-xs-12 book_body", id: "book_body"} %>
   </div>
   <div class="actions row">
     <%= f.submit html: {class: "btn btn-primary col-xs-12", id: "book_body"} %>
