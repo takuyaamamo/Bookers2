@@ -1,0 +1,86 @@
+<section class='body'>
+  <div class='container'>
+    <% if flash[:notice] %>
+      <div class="flash">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+    <div class='row'>
+      <div class='col-xs-3'>
+        <h2>User info</h2>
+        <table class='table'>
+          <tr>
+            <%= attachment_image_tag @user, :image, :fill, 100, 100, format: 'jpeg',:class => "attachment user profile_image", :alt => "Profile image" %>
+          </tr>
+          <tr>
+            <th>name</th>
+            <th>
+              <%= @user.name %>
+            </th>
+          </tr>
+          <tr>
+            <th>introduction</th>
+            <th><%= @user.introduction %></th>
+          </tr>
+        </table>
+
+        <!-- 編集ボタン -->
+        <div class='row'>
+          <a class="col-xs-12 btn btn-default glyphicon glyphicon-wrench edit_user_3337" href="<%= edit_user_path(current_user.id)  %>"></a>
+        </div>
+        <%# このページはテンプレートとしてマイページの左下に表示する %>
+        <h2>New book</h2>
+        <%= form_for @book, html: {class: "new_book", id: "new_book"} do |f| %>
+          <input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden"/>
+          <div class="field row">
+            <label for="book_title">Title</label>
+            <%= f.text_field :book_title, html: {class: "col-xs-12 book_title", id: "book_title"} %>
+          </div>
+          <div class="field row">
+            <label for="book_opinion">Opinion</label>
+            <%= f.text_area :book_body, html: {class: "col-xs-12 book_body", id: "book_body"} %>
+          </div>
+          <div class="actions row">
+            <%= f.submit html: {class: "btn btn-primary col-xs-12", id: "book_body"} %>
+          </div>
+        <% end %>
+        </div>
+        <div class='col-xs-9'>
+          <h2>Books</h2>
+
+          <table class='table table-hover table-inverse'>
+            <thead>
+              <tr>
+                <th></th>
+                <th>Title</th>
+                <th>Opinion</th>
+                <th colspan="3"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @books.each do |user_book| %>
+              <% books_user = @users.find(user_book.user_id) %>
+              <tr>
+                <td>
+                  <%= link_to user_path(books_user.id) do %>
+                  <%= attachment_image_tag books_user, :image, :fill, 50, 50, format: 'jpeg',:class => "attachment user profile_image", :alt => "Profile image" %>
+                  <%= books_user.name %>
+                  <% end %>
+                </td>
+                <td>
+                  <%= link_to book_path(user_book.id), html: {class: "book_5914", id: "new_book"} do %>
+                  <%= user_book.book_title %>
+                  <% end %>
+                </td>
+                <td>
+                  <%= user_book.book_body %>
+                </td>
+              </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+
+    </div>
+  </div>
+</section>

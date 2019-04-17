@@ -1,17 +1,1 @@
-<section class='body'>
-  <div class='container'>
-    <% if flash[:notice] %>
-      <div class="flash">
-        <%= flash[:notice] %>
-      </div>
-    <% end %>
-    <div class='row'>
-
-        <!-- 部分テンプレート -->
-        <%= render 'shared/mypage' %>
-        <%= render 'shared/new' %>
-        <%= render 'shared/show' %>
-
-    </div>
-  </div>
-</section>
+<%= render 'shared/all' %>

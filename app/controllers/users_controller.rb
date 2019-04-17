@@ -5,7 +5,8 @@ class UsersController < ApplicationController
     @book = Book.new
     @books = Book.all
     # whereは複数
-    @user_books = @books.where(user_id: params[:id])
+    @books = @books.where(user_id: params[:id])
+    @users = User.all
   end
 
   def edit

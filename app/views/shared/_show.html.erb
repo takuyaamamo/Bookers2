@@ -11,12 +11,13 @@
       </tr>
     </thead>
     <tbody>
-      <% @user_books.each do |user_book| %>
+      <% @books.each do |user_book| %>
+      <% books_user = @users.find(user_book.user_id) %>
       <tr>
         <td>
-          <%= link_to user_path(@user.id) do %>
-          <%= attachment_image_tag @user, :image, :fill, 50, 50, format: 'jpeg',:class => "attachment user profile_image", :alt => "Profile image" %>
-          <%= @user.name %>
+          <%= link_to user_path(books_user.id) do %>
+          <%= attachment_image_tag books_user, :image, :fill, 50, 50, format: 'jpeg',:class => "attachment user profile_image", :alt => "Profile image" %>
+          <%= books_user.name %>
           <% end %>
         </td>
         <td>
