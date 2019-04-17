@@ -10,7 +10,9 @@
       <div class='col-xs-3'>
         <h2>User info</h2>
         <table class='table'>
-          <tr><img class="attachment user profile_image" src="/attachments/fef8a78e33cc23428799070a1e90807ca836d6d5/store/fill/100/100/6c4a9b64ced7b7311302ec2d0431c9e50b15f01e9412d435e439b3f05f0b/profile_image" alt="Profile image" /></tr>
+          <tr>
+            <%= attachment_image_tag @user, :image, :fill, 100, 100, format: 'jpeg',:class => "attachment user profile_image", :alt => "Profile image" %>
+          </tr>
           <tr>
             <th>name</th>
             <th>
@@ -19,7 +21,7 @@
           </tr>
           <tr>
             <th>introduction</th>
-            <th><%=  %>こんにちは</th>
+            <th><%= @user.introduction %></th>
           </tr>
         </table>
 
