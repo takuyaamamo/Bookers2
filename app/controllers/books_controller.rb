@@ -17,6 +17,7 @@ class BooksController < ApplicationController
   def index
     # findは１件だけ
     @user = User.find(current_user.id)
+    @users = User.all
     @book = Book.new
     @user_books = Book.all
   end

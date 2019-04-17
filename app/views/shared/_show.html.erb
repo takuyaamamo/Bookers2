@@ -16,6 +16,7 @@
         <td>
           <%= link_to user_path(@user.id) do %>
           <%= attachment_image_tag @user, :image, :fill, 50, 50, format: 'jpeg',:class => "attachment user profile_image", :alt => "Profile image" %>
+          <%= @user.name %>
           <% end %>
         </td>
         <td>
