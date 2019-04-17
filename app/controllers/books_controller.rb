@@ -7,6 +7,13 @@ class BooksController < ApplicationController
     redirect_to user_path(@book.user_id)
   end
 
+  def show
+    @user_book = Book.find(params[:id])
+    @user = User.find(@user_book.user_id)
+    @book = Book.new
+    # whereは複数
+  end
+
   def update
   end
 
