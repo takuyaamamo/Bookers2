@@ -1,5 +1,8 @@
 class BookController < ApplicationController
   def create
+    @book.save
+    # redirect_to show_path(@book.id)
+    redirect_to root
   end
 
   def update
