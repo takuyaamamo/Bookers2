@@ -29,25 +29,11 @@
 
               <div class="collapse navbar-collapse navbar-right" id="navbarEexample7">
                 <ul class="nav navbar-nav">
-                  <li><a href="/"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a></li>
-                  <li><a href="/"><span class="glyphicon glyphicon-link" aria-hidden="true"></span> About</a></li>
-                  <li>
-                    <%= link_to user_path(current_user) do %>
-                      <span class="glyphicon glyphicon-user users" aria-hidden="true"></span> Users
-                    <% end %>
-                  </li>
-                  <li>
-                    <%= link_to books_path do %>
-                      <span class="glyphicon glyphicon-book" aria-hidden="true"></span> Books
-                    <% end %>
-                  </li>
-                  <li><a href="/users/sign_up"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> sign up</a></li>
-                  <li><a href="/users/sign_in"><span class="glyphicon glyphicon-log-in" aria-hidden="true"></span> log in</a></li>
-                  <li>
-                    <%= link_to destroy_user_session_path, method: :delete do %>
-                    <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> log out
-                    <% end %>
-                  </li>
+                  <% if current_user %>
+                    <%= render 'shared/login_header' %>
+                  <% else %>
+                    <%= render 'shared/logout_header' %>
+                  <% end %>
                 </ul>
               </div>
             </div>

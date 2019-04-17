@@ -14,6 +14,13 @@ class BooksController < ApplicationController
     # whereは複数
   end
 
+  def index
+    # findは１件だけ
+    @user = User.find(current_user.id)
+    @book = Book.new
+    @user_books = Book.all
+  end
+
   def update
   end
 

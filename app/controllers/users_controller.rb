@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   def show
     # findは１件だけ
-    @user = User.find(params[:id])
+    @user = User.find(current_user.id)
     @book = Book.new
     @books = Book.all
     # whereは複数
