@@ -1,7 +1,7 @@
 <%# このページはテンプレートとしてマイページの左下に表示する %>
 <h2>New book</h2>
 <%= form_for @book, html: {class: "new_book", id: "new_book"} do |f| %>
-  <input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="CovBRAE+UkDAUnrf6xsR0Q9HK1Gfcj5ks4HxAAI3PAGuiii2msGky7MYXJD6S12n92K2ggDSVcx6ILzEahGYhA==" />
+  <input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden"/>
   <div class="field row">
     <label for="book_title">Title</label>
     <%= f.text_field :book_title, html: {class: "col-xs-12 book_title", id: "book_title"} %>

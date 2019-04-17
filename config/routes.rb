@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  get 'book/create'
-  get 'book/update'
-  get 'book/delete'
+  get 'books/create'
+  get 'books/update'
+  get 'books/delete'
   # トップページをルートにするroot to: 'コントローラ#アクション'
   root to: 'toppage#top'
 
