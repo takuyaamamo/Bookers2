@@ -12,22 +12,23 @@
     </thead>
 
     <tbody>
+      <% @user_books.each do |user_book| %>
       <tr>
         <td>
-          <a href="/users/3337">
-          <%=  %>
-          <img class="attachment user profile_image" src="/attachments/3972390d616ac62a7fd09edfbba758247e7c6205/store/fill/50/50/6c4a9b64ced7b7311302ec2d0431c9e50b15f01e9412d435e439b3f05f0b/profile_image" alt="Profile image" />
-          </a>
+          <%= link_to user_path(@user.id) do %>
+          <%= attachment_image_tag @user, :image, :fill, 50, 50, format: 'jpeg',:class => "attachment user profile_image", :alt => "Profile image" %>
+          <% end %>
         </td>
         <td>
-          <a class="book_5914" href="/books/5914">
-          <%=  %>名前付きルート
-          </a>
+          <%= link_to book_path(user_book.id), html: {class: "book_5914", id: "new_book"} do %>
+          <%= user_book.book_title %>
+          <% end %>
         </td>
         <td>
-          <%=  %>このｎ
+          <%= user_book.book_body %>
         </td>
       </tr>
+      <% end %>
     </tbody>
   </table>
 </div>
