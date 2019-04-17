@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'posts/new'
+  get 'posts/show'
+  get 'posts/edit'
+  get 'posts/update'
   # トップページをルートにするroot to: 'コントローラ#アクション'
   root to: 'toppage#top'
 
@@ -12,5 +16,6 @@ Rails.application.routes.draw do
 
   resources :user_images, only: [:new, :create, :show]
   resources :users
+  resources :posts
 
 end
