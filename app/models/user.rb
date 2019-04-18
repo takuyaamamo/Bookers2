@@ -10,4 +10,14 @@ class User < ApplicationRecord
   # has_manyで1:Nの1→Nの方向性を書いている、dependentはUserが削除されたら一緒に削除されるってこと
   has_many :books, dependent: :destroy
 
+  validates :name,
+    presence: true,
+    uniqueness: { case_sensitive: :false },
+    length: { maximum: 20 }
+
+  validates :introduction,
+    uniqueness: { case_sensitive: :false },
+    length: { maximum: 50 }
+
+
 end

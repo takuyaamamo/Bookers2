@@ -26,15 +26,24 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    @user.update(user_params)
-    flash[:notice] = '編集成功！！'
-    redirect_to user_path(current_user.id)
+    if @user.update(user_params)
+      flash[:notice] = '編集成功！！successfully'
+      redirect_to user_path(current_user.id)
+    else
+      flash[:notice] = '編集失敗！！error'
+      render action: :edit
+    end
   end
 
   def destroy
     @book = Book.find(params[:id])
-    @book.destroy
-    redirect_to user_path
+    if @book.destroy
+      flash[:notice] = '削除成功！！successfully'
+      redirect_to user_path
+    else
+      flash[:notice] = '削除失敗！！error'
+      redirect_to user_path
+    end
   end
 
   private

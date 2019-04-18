@@ -1,5 +1,22 @@
 <!-- このページはテンプレートとしてマイページの左下に表示する -->
 <h2>New book</h2>
+<% if @book.errors.any? %>
+  <p>入力した内容にエラーが<%= @book.errors.count %>件あります</p>
+  <ul>
+    <% @book.errors.full_messages.each do |book_error| %>
+      <li><%= book_error %></li>
+    <% end %>
+  </ul>
+<% end %>
+<% if @user.errors.any? %>
+  <p>入力した内容にエラーが<%= @user.errors.count %>件あります</p>
+  <ul>
+    <% @user.errors.full_messages.each do |user_error| %>
+      <li><%= user_error %></li>
+    <% end %>
+  </ul>
+<% end %>
+
 <%= form_for @book, html: {class: "new_book", id: "new_book"} do |f| %>
   <input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden"/>
   <div class="field row">

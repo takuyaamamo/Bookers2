@@ -8,12 +8,12 @@
     <% end %>
 
 <div class='row'>
-  
+
 <div class='col-xs-3'>
   <h2>User info</h2>
   <table class='table'>
     <tr>
-      <%= attachment_image_tag @user, :image, :fill, 100, 100, format: 'jpeg',:class => "attachment user profile_image", :alt => "Profile image" %>
+      <%= attachment_image_tag @user, :image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg",size: '50x50', :class => "attachment user profile_image", :alt => "Profile image" %>
     </tr>
     <tr>
       <th>name</th>
