@@ -10,6 +10,7 @@ class ApplicationController < ActionController::Base
     # 新規登録時とログイン時にdeviseでストロングパラメータを追加する.追加しないとPOSTに反映されない
     devise_parameter_sanitizer.permit(:sign_up, keys: [:email])
     devise_parameter_sanitizer.permit(:sign_in, keys: [:name])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:name,:introduction,:image])
   end
 
 # deviseはデフォルト設定でログイン後トップページに飛んでしまう。トップページを設定している場合変更は出来ない。よって以下の設定を行う

@@ -7,8 +7,11 @@ class BooksController < ApplicationController
       flash[:notice] = '投稿成功！！'
       redirect_to user_path(@book.user_id)
     else
+      @user = User.find(current_user.id)
+      @books = Book.all
+      @users = User.all
       flash[:notice] = '投稿失敗！！err'
-      redirect_to user_path(@book.user_id)
+      render action: :index
     end
   end
 
