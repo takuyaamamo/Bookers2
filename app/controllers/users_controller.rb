@@ -22,7 +22,7 @@ class UsersController < ApplicationController
 
   def edit
     # パラムスとカレントが違う場合飛ばす
-    if params[:id] == current_user.id
+    if params[:id] == current_user.id.to_s
       @user = User.find(params[:id])
     else
       redirect_to user_path(current_user.id)
