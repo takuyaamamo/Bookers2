@@ -29,6 +29,16 @@
                   <td>
                     <%= @abook.book_body %>
                   </td>
+                  <td>
+                    <%= link_to edit_book_path(@abook.id), html: {class: "btn-sm btn-success edit_book_6040", id: "new_book"} do %>
+                    Edit
+                    <% end %>
+                  </td>
+                  <td>
+                    <%= link_to book_path(@abook.id), method: :delete, html: {class: "btn-sm btn-danger destroy_book_6040", }, data: {confirm: "本当に消しますか？"} do %>
+                    Destroy
+                    <% end %>
+                  </td>
                 </tr>
             </tbody>
           </table>

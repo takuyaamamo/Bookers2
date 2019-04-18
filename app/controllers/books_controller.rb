@@ -23,10 +23,21 @@ class BooksController < ApplicationController
     @books = Book.all
   end
 
-  def update
+  def edit
+    @book = Book.find(params[:id])
   end
 
-  def delete
+  def update
+    @book = Book.find(params[:id])
+    @book.update(book_params)
+    flash[:notice] = '編集成功！！'
+    redirect_to user_path(current_user.id)
+  end
+
+  def destroy
+    @book = Book.find(params[:id])
+    @book.destroy
+    redirect_to user_path
   end
 
   private

@@ -28,7 +28,13 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @user.update(user_params)
     flash[:notice] = '編集成功！！'
-    redirect_to user_path(@user.id)
+    redirect_to user_path(current_user.id)
+  end
+
+  def destroy
+    @book = Book.find(params[:id])
+    @book.destroy
+    redirect_to user_path
   end
 
   private

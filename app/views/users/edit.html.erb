@@ -6,6 +6,7 @@
       </div>
     <% end %>
     <h2>User info</h2>
+
     <%= form_for(@user, html: {class: 'edit_user'}) do |f| %>
     <div class="field">
       <label for="user_name">Name</label>
@@ -23,5 +24,6 @@
       <%= f.submit '編集完了' %>
     </div>
     <% end %>
+
   </div>
 </div>
