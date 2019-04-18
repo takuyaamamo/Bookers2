@@ -22,7 +22,7 @@
                     <% end %>
                   </td>
                   <td>
-                    <%= link_to book_path(@abook.id), html: {class: "book_5914", id: "new_book"} do %>
+                    <%= link_to book_path(@abook.id), html: {class: "book_#{@abook.id}", id: "new_book"} do %>
                     <%= @abook.book_title %>
                     <% end %>
                   </td>
@@ -31,12 +31,12 @@
                   </td>
                   <% if current_user.id == @user.id %>
                     <td>
-                      <%= link_to edit_book_path(@abook.id), html: {class: "btn-sm btn-success edit_book_6040", id: "new_book"} do %>
+                      <%= link_to edit_book_path(@abook.id), html: {class: "btn-sm btn-success edit_book_#{@abook.id}", id: "new_book"} do %>
                       Edit
                       <% end %>
                     </td>
                     <td>
-                      <%= link_to book_path(@abook.id), method: :delete, html: {class: "btn-sm btn-danger destroy_book_6040", }, data: {confirm: "本当に消しますか？"} do %>
+                      <%= link_to book_path(@abook.id), method: :delete, html: {class: "btn-sm btn-danger destroy_book_#{@abook.id}", }, data: {confirm: "本当に消しますか？"} do %>
                       Destroy
                       <% end %>
                     </td>

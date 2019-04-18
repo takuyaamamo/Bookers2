@@ -1,6 +1,6 @@
 <!-- <li><a href="/"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a></li> -->
 <li>
-  <%= link_to user_path(current_user) do %>
+  <%= link_to user_path(current_user), { :class => "home" } do %>
     <span class="glyphicon glyphicon-home home" aria-hidden="true"></span> Home
   <% end %>
 </li>
@@ -11,11 +11,11 @@
 </li>
 <li>
   <%= link_to books_path do %>
-    <span class="glyphicon glyphicon-book" aria-hidden="true"></span> Books
+    <span class="glyphicon glyphicon-book books" aria-hidden="true"></span> Books
   <% end %>
 </li>
 <li>
   <%= link_to destroy_user_session_path, method: :delete do %>
-  <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> log out
+  <span class="glyphicon glyphicon-log-out logout" aria-hidden="true"></span> log out
   <% end %>
 </li>

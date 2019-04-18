@@ -5,7 +5,7 @@ class BooksController < ApplicationController
     if @book.save
       # redirect_to show_path(@book.id)
       flash[:notice] = '投稿成功！！'
-      redirect_to user_path(@book.user_id)
+      redirect_to book_path(@book.id)
     else
       # こっちの場合通常のやつで表示される。レンダーはアクションを生成すると同じ
       # @user = User.find(current_user.id)
@@ -35,13 +35,16 @@ class BooksController < ApplicationController
 
   def edit
     @book = Book.find(params[:id])
+    if @book.user_id != current_user.id
+      redirect_to user_path(current_user.id)
+    end
   end
 
   def update
     @book = Book.find(params[:id])
     if @book.update(book_params)
       flash[:notice] = '編集成功！！successfully'
-      redirect_to user_path(current_user.id)
+      redirect_to book_path(@book.id)
     else
       flash[:notice] = '編集失敗！！error'
       render action: :edit

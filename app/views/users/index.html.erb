@@ -27,7 +27,7 @@
                     <%= user.name %>
                   </td>
                   <td>
-                    <%= link_to user_path(user.id), html: {class: "book_5914", id: "new_book"} do %>
+                    <%= link_to user_path(user.id), html: {class: "user_#{user.id}", id: "new_book"} do %>
                     show
                     <% end %>
                   </td>

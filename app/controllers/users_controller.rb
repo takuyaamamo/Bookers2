@@ -21,7 +21,12 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
+    # パラムスとカレントが違う場合飛ばす
+    if params[:id] == current_user.id
+      @user = User.find(params[:id])
+    else
+      redirect_to user_path(current_user.id)
+    end
   end
 
   def update
