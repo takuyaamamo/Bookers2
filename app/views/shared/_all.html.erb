@@ -58,6 +58,10 @@
               </tr>
             </thead>
             <tbody>
+              <!-- ここからは配列が入った各コントローラーで@booksと@usersにモデル名.allを代入する必要がある。
+              each doは複数の配列に対して適用される溜めbooksのshowページでは適用できない@booksではなく@user_book = Book.find(params[:id])、@user = User.find(@user_book.user_id)を使用する。
+              @books = 投稿の配列を代入されているこの中からeach doでuser_bookに取り出し、各情報を表示している
+              books_user = user_bookから該当する投稿者を抜き出している -->
               <% if @books %>
                 <% @books.each do |user_book| %>
                 <% books_user = @users.find(user_book.user_id) %>
