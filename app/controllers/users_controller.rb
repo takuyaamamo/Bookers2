@@ -1,12 +1,23 @@
 class UsersController < ApplicationController
   def show
+    # マイページを表示する
     # findは１件だけ
+    # @user自分
     @user = User.find(current_user.id)
     @book = Book.new
     @books = Book.all
+    # @user_book自分が投稿した本
+    @user_books = @books.where(user_id: @user.id)
     # whereは複数
-    @books = @books.where(user_id: params[:id])
+    # @books = @books.where(user_id: params[:id])
+    # @users = User.all
+  end
+
+  def index
+    # いろんなユーザーを表示するページ
+    @user = User.find(current_user.id)
     @users = User.all
+    @book = Book.new
   end
 
   def edit

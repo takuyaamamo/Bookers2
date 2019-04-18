@@ -1,6 +1,11 @@
-<li><a href="/"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a></li>
+<!-- <li><a href="/"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a></li> -->
 <li>
   <%= link_to user_path(current_user) do %>
+    <span class="glyphicon glyphicon-home home" aria-hidden="true"></span> Home
+  <% end %>
+</li>
+<li>
+  <%= link_to users_path do %>
     <span class="glyphicon glyphicon-user users" aria-hidden="true"></span> Users
   <% end %>
 </li>

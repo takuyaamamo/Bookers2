@@ -12,18 +12,18 @@
         <h2>User info</h2>
         <table class='table'>
           <tr>
-            <%= attachment_image_tag @user, :image, :fill, 100, 100, format: 'jpeg',:class => "attachment user profile_image", :alt => "Profile image" %>
+            <%= attachment_image_tag @users, :image, :fill, 100, 100, format: 'jpeg',:class => "attachment user profile_image", :alt => "Profile image" %>
           </tr>
           <tr>
             <th>name</th>
             <th>
-              <%= @user.name %>
+              <%= @users.name %>
             </th>
           </tr>
           <tr>
             <th>introduction</th>
             <th>
-              <%= @user.introduction %>
+              <%= @users.introduction %>
             </th>
           </tr>
         </table>
@@ -72,7 +72,10 @@
               <% if @books && @books.size >= 2 %>
 
                 <% @books.each do |user_book| %>
-                  <% books_user = @users.find(user_book.user_id) %>
+                
+                  <% if @users && @users.size >= 2 %>
+                    <% books_user = @users.find(user_book.user_id) %>
+                  <% end %>
 
                   <tr>
                     <td>
@@ -96,7 +99,7 @@
               <!-- ifのelse if -->
               <!-- @booksがなくてかつ@usersが2個以上の配列の場合（ユーザーの内容を表示する場合） -->
               <!-- 複数表示されるユーザー一覧 -->
-              <% elseif !@books && @users.size >= 2 %>
+              <% elseif @books && @users.size >= 2 %>
 
                 <% @users.each do |user| %>
 
@@ -121,7 +124,7 @@
               <!-- ifのelse if -->
               <!-- @booksがなくてかつ@usersが1つの場合（ユーザーの内容を表示する場合） -->
               <!-- 一人しか表示されないユーザー一覧 -->
-              <% elseif  !@books && @users.size = 1 %>
+              <% elseif  @books && @users.size = 1 %>
 
                 <tr>
                   <td>

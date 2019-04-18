@@ -14,21 +14,22 @@
               </tr>
             </thead>
             <tbody>
-              <% @user_books.each do |user_book|%>
+              
+                <% @users.each do |user| %>
+
                 <tr>
                   <td>
-                    <%= link_to user_path(@user.id) do %>
-                      <%= attachment_image_tag @user, :image, :fill, 50, 50, format: 'jpeg',:class => "attachment user profile_image", :alt => "Profile image" %>
-                      <%= @user.name %>
+                    <%= link_to user_path(user.id) do %>
+                    <%= attachment_image_tag user, :image, :fill, 50, 50, format: 'jpeg',:class => "attachment user profile_image", :alt => "Profile image" %>
                     <% end %>
                   </td>
                   <td>
-                    <%= link_to book_path(user_book.id), html: {class: "book_5914", id: "new_book"} do %>
-                    <%= user_book.book_title %>
-                    <% end %>
+                    <%= user.name %>
                   </td>
                   <td>
-                    <%= user_book.book_body %>
+                    <%= link_to book_path(user.id), html: {class: "book_5914", id: "new_book"} do %>
+                    show
+                    <% end %>
                   </td>
                 </tr>
               <% end %>
