@@ -1,10 +1,12 @@
 <section class='body'>
   <div class='container'>
+
     <% if flash[:notice] %>
       <div class="flash">
         <%= flash[:notice] %>
       </div>
     <% end %>
+
     <div class='row'>
       <div class='col-xs-3'>
         <h2>User info</h2>
@@ -20,7 +22,9 @@
           </tr>
           <tr>
             <th>introduction</th>
-            <th><%= @user.introduction %></th>
+            <th>
+              <%= @user.introduction %>
+            </th>
           </tr>
         </table>
 
@@ -28,7 +32,7 @@
         <div class='row'>
           <a class="col-xs-12 btn btn-default glyphicon glyphicon-wrench edit_user_3337" href="<%= edit_user_path(current_user.id)  %>"></a>
         </div>
-        <%# このページはテンプレートとしてマイページの左下に表示する %>
+        <!-- このページはテンプレートとしてマイページの左下に表示する -->
         <h2>New book</h2>
         <%= form_for @book, html: {class: "new_book", id: "new_book"} do |f| %>
           <input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden"/>
@@ -62,44 +66,101 @@
               each doは複数の配列に対して適用される溜めbooksのshowページでは適用できない@booksではなく@user_book = Book.find(params[:id])、@user = User.find(@user_book.user_id)を使用する。
               @books = 投稿の配列を代入されているこの中からeach doでuser_bookに取り出し、各情報を表示している
               books_user = user_bookから該当する投稿者を抜き出している -->
-              <% if @books %>
+
+              <!-- @booksがあってかつ@booksが2個以上の配列の場合（本の内容を表示する場合） -->
+              <!-- 複数表示される適用範囲マイページ、本の一覧ページ -->
+              <% if @books && @books.size >= 2 %>
+
                 <% @books.each do |user_book| %>
-                <% books_user = @users.find(user_book.user_id) %>
+                  <% books_user = @users.find(user_book.user_id) %>
+
+                  <tr>
+                    <td>
+                      <%= link_to user_path(books_user.id) do %>
+                      <%= attachment_image_tag books_user, :image, :fill, 50, 50, format: 'jpeg',:class => "attachment user profile_image", :alt => "Profile image" %>
+                      <%= books_user.name %>
+                      <% end %>
+                    </td>
+                    <td>
+                      <%= link_to book_path(user_book.id), html: {class: "book_5914", id: "new_book"} do %>
+                      <%= user_book.book_title %>
+                      <% end %>
+                    </td>
+                    <td>
+                      <%= user_book.book_body %>
+                    </td>
+                  </tr>
+                <!-- eachのend -->
+                <% end %>
+
+              <!-- ifのelse if -->
+              <!-- @booksがなくてかつ@usersが2個以上の配列の場合（ユーザーの内容を表示する場合） -->
+              <!-- 複数表示されるユーザー一覧 -->
+              <% elseif !@books && @users.size >= 2 %>
+
+                <% @users.each do |user| %>
 
                 <tr>
                   <td>
-                    <%= link_to user_path(books_user.id) do %>
-                    <%= attachment_image_tag books_user, :image, :fill, 50, 50, format: 'jpeg',:class => "attachment user profile_image", :alt => "Profile image" %>
-                    <%= books_user.name %>
+                    <%= link_to user_path(user.id) do %>
+                    <%= attachment_image_tag user, :image, :fill, 50, 50, format: 'jpeg',:class => "attachment user profile_image", :alt => "Profile image" %>
                     <% end %>
                   </td>
                   <td>
-                    <%= link_to book_path(user_book.id), html: {class: "book_5914", id: "new_book"} do %>
-                    <%= user_book.book_title %>
-                    <% end %>
+                    <%= user.name %>
                   </td>
                   <td>
-                    <%= user_book.book_body %>
+                    <%= link_to book_path(user.id), html: {class: "book_5914", id: "new_book"} do %>
+                    show
+                    <% end %>
                   </td>
                 </tr>
+                <!-- eachのend -->
                 <% end %>
+
+              <!-- ifのelse if -->
+              <!-- @booksがなくてかつ@usersが1つの場合（ユーザーの内容を表示する場合） -->
+              <!-- 一人しか表示されないユーザー一覧 -->
+              <% elseif  !@books && @users.size = 1 %>
+
+                <tr>
+                  <td>
+                    <%= link_to user_path(@users.id) do %>
+                    <%= attachment_image_tag @users, :image, :fill, 50, 50, format: 'jpeg',:class => "attachment user profile_image", :alt => "Profile image" %>
+                    <% end %>
+                  </td>
+                  <td>
+                    <%= @users.name %>
+                  </td>
+                  <td>
+                    <%= link_to book_path(@users.id), html: {class: "book_5914", id: "new_book"} do %>
+                    show
+                    <% end %>
+                  </td>
+                </tr>
+
+              <!-- @booksが一つの場合（本の内容を表示する場合） -->
+              <!-- 一つしか表示されない本の一覧 -->
               <% else %>
-              <tr>
-                <td>
-                  <%= link_to user_path(@user.id) do %>
-                    <%= attachment_image_tag @user, :image, :fill, 50, 50, format: 'jpeg',:class => "attachment user profile_image", :alt => "Profile image" %>
-                    <%= @user.name %>
-                  <% end %>
-                </td>
-                <td>
-                  <%= link_to book_path(@user_book.id), html: {class: "book_5914", id: "new_book"} do %>
-                  <%= @user_book.book_title %>
-                  <% end %>
-                </td>
-                <td>
-                  <%= @user_book.book_body %>
-                </td>
-              </tr>
+
+                <tr>
+                  <td>
+                    <%= link_to user_path(@user.id) do %>
+                      <%= attachment_image_tag @user, :image, :fill, 50, 50, format: 'jpeg',:class => "attachment user profile_image", :alt => "Profile image" %>
+                      <%= @user.name %>
+                    <% end %>
+                  </td>
+                  <td>
+                    <%= link_to book_path(@user_book.id), html: {class: "book_5914", id: "new_book"} do %>
+                    <%= @user_book.book_title %>
+                    <% end %>
+                  </td>
+                  <td>
+                    <%= @user_book.book_body %>
+                  </td>
+                </tr>
+
+              <!-- ifのend -->
               <% end %>
             </tbody>
           </table>
