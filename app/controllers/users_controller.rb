@@ -3,7 +3,7 @@ class UsersController < ApplicationController
     # マイページを表示する
     # findは１件だけ
     # @user自分
-    @user = User.find(current_user.id)
+    @user = User.find(params[:id])
     @book = Book.new
     @books = Book.all
     # @user_book自分が投稿した本
