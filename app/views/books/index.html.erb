@@ -1,1 +1,43 @@
-<%= render 'shared/all' %>
+<%= render 'shared/mypage' %>
+<%= render 'shared/new' %>
+<!-- 右側部分は自分が投稿した本の一覧 -->
+        <div class='col-xs-9'>
+          <h2>Books</h2>
+
+          <table class='table table-hover table-inverse'>
+            <thead>
+              <tr>
+                <th></th>
+                <th>Title</th>
+                <th>Opinion</th>
+                <th colspan="3"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @books.each do |book|%>
+              <!-- 表示される本に対応したuserを取り出す処理 -->
+              <% book_user = @users.find(book.user_id) %>
+                <tr>
+                  <td>
+                    <%= link_to user_path(book_user.id) do %>
+                      <%= attachment_image_tag book_user, :image, :fill, 50, 50, format: 'jpeg',:class => "attachment user profile_image", :alt => "Profile image" %>
+                      <%= book_user.name %>
+                    <% end %>
+                  </td>
+                  <td>
+                    <%= link_to book_path(book.id), html: {class: "book_5914", id: "new_book"} do %>
+                    <%= book.book_title %>
+                    <% end %>
+                  </td>
+                  <td>
+                    <%= book.book_body %>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+
+    </div>
+  </div>
+</section>

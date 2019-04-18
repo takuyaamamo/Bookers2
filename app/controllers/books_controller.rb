@@ -9,8 +9,8 @@ class BooksController < ApplicationController
 
   def show
     @users = User.all
-    @user_book = Book.find(params[:id])
-    @user = User.find(@user_book.user_id)
+    @abook = Book.find(params[:id])
+    @user = @users.find(@abook.user_id)
     @book = Book.new
     # whereは複数
   end

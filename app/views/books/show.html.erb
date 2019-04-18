@@ -1,1 +1,39 @@
-<%= render 'shared/all' %>
+<%= render 'shared/mypage' %>
+<%= render 'shared/new' %>
+<!-- 右側部分は自分が投稿した本の一覧 -->
+        <div class='col-xs-9'>
+          <h2>Book detail</h2>
+
+          <table class='table table-hover table-inverse'>
+            <thead>
+              <tr>
+                <th></th>
+                <th>Title</th>
+                <th>Opinion</th>
+                <th colspan="3"></th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr>
+                  <td>
+                    <%= link_to user_path(@user.id) do %>
+                      <%= attachment_image_tag @user, :image, :fill, 50, 50, format: 'jpeg',:class => "attachment user profile_image", :alt => "Profile image" %>
+                      <%= @user.name %>
+                    <% end %>
+                  </td>
+                  <td>
+                    <%= link_to book_path(@abook.id), html: {class: "book_5914", id: "new_book"} do %>
+                    <%= @abook.book_title %>
+                    <% end %>
+                  </td>
+                  <td>
+                    <%= @abook.book_body %>
+                  </td>
+                </tr>
+            </tbody>
+          </table>
+        </div>
+
+    </div>
+  </div>
+</section>
