@@ -7,11 +7,13 @@ class BooksController < ApplicationController
       flash[:notice] = '投稿成功！！'
       redirect_to user_path(@book.user_id)
     else
-      @user = User.find(current_user.id)
-      @books = Book.all
-      @users = User.all
-      flash[:notice] = '投稿失敗！！err'
-      render action: :index
+      # こっちの場合通常のやつで表示される。レンダーはアクションを生成すると同じ
+      # @user = User.find(current_user.id)
+      # @books = Book.all
+      # @users = User.all
+      # flash[:notice] = '投稿失敗！！err'
+      # render action: :index
+      redirect_to user_path(@book.user_id), flash: { error: @book.errors.full_messages }
     end
   end
 

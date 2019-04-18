@@ -1,5 +1,6 @@
 <!-- このページはテンプレートとしてマイページの左下に表示する -->
 <h2>New book</h2>
+<!-- @bookでエラーを呼び出す場合renderが必要 -->
 <% if @book.errors.any? %>
   <p>入力した内容にエラーが<%= @book.errors.count %>件あります</p>
   <ul>
@@ -8,11 +9,11 @@
     <% end %>
   </ul>
 <% end %>
-<% if @user.errors.any? %>
-  <p>入力した内容にエラーが<%= @user.errors.count %>件あります</p>
+<% if flash[:error] %>
+  <p>入力した内容にエラーが<%= flash[:error].count %>件あります</p>
   <ul>
-    <% @user.errors.full_messages.each do |user_error| %>
-      <li><%= user_error %></li>
+    <% flash[:error].each do |book_error| %>
+      <li><%= book_error %></li>
     <% end %>
   </ul>
 <% end %>
