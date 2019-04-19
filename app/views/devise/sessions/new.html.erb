@@ -5,8 +5,8 @@
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
-    <%= f.label :name,class: "name" %><br />
-    <%= f.text_field :name, autofocus: true, autocomplete: "Name" %>
+    <%= f.label :name %><br />
+    <%= f.text_field :name, autofocus: true, autocomplete: "Name",class: "name" %>
   </div>
 
   <div class="field">
@@ -22,7 +22,7 @@
   <% end %>
 
   <div class="actions">
-    <%= f.submit "Log in" %>
+    <%= f.submit "Log in", class: "sign_in" %>
   </div>
 <% end %>
 

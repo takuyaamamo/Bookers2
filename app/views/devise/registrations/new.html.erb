@@ -6,13 +6,13 @@
     <%= render "devise/shared/error_messages", resource: resource %>
     <!-- サインアップ画面に名前欄を追加 -->
     <div class="field">
-      <%= f.label :name,class: "name" %><br />
-      <%= f.text_field :name, autofocus: true, autocomplete: "Name" %>
+      <%= f.label :name %><br />
+      <%= f.text_field :name, autofocus: true, autocomplete: "Name",class: "name" %>
     </div>
 
     <div class="field email">
-      <%= f.label :email, class: "email" %><br />
-      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      <%= f.label :email %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "email" %>
     </div>
 
     <div class="field">
@@ -29,7 +29,7 @@
     </div>
 
     <div class="actions">
-      <%= f.submit "Sign up" %>
+      <%= f.submit "Sign up", class: "sign_up" %>
     </div>
     <% end %>
 
