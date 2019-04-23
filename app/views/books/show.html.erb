@@ -36,9 +36,8 @@
                       <% end %>
                     </td>
                     <td>
-                      <%= link_to book_path(@abook.id), method: :delete, {class: "btn-sm btn-danger destroy_book_#{@abook.id}", }, data: {confirm: "本当に消しますか？"} do %>
-                      Destroy
-                      <% end %>
+                      <%= link_to 'Destroy',book_path(@abook.id), method: :delete, class: "btn-sm btn-danger destroy_book_#{@abook.id}", data: {confirm: "本当に消しますか？"}  %>
+
                     </td>
                   <% end %>
                 </tr>
